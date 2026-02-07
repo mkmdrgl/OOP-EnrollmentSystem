@@ -1,14 +1,14 @@
 package org.example;
 
 public class Student {
-    private int studentID;
+    private String studentID;
     private String studentName;
     private String program;
 
     public Student() {
     }
 
-    public int getstudentID() {
+    public String getstudentID() {
         return studentID;
     }
 
@@ -20,7 +20,7 @@ public class Student {
         return program;
     }
 
-    public void setstudentID(int studentID) {
+    public void setstudentID(String studentID) {
         this.studentID = studentID;
     }
 

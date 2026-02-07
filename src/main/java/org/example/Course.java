@@ -3,7 +3,7 @@ package org.example;
 public class Course {
     private String courseID;
     private String courseName;
-    private String course;
+    private String program;
 
     public Course() {
     }
@@ -16,8 +16,8 @@ public class Course {
         return courseName;
     }
 
-    public String getcourse() {
-        return course;
+    public String getprogram() {
+        return program;
     }
 
     public void setcourseID(String courseID) {
@@ -28,8 +28,8 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public void setcourse(String course) {
-        this.course = course;
+    public void setprogram(String program) {
+        this.program = program;
     }
 
 }
