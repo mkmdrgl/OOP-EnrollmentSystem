@@ -8,6 +8,12 @@ public class Student {
     public Student() {
     }
 
+    public Student(String studentID, String studentName, String program) {
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.program = program;
+    }
+
     public String getstudentID() {
         return studentID;
     }
@@ -30,5 +36,11 @@ public class Student {
 
     public void setprogram(String program) {
         this.program = program;
+    }
+
+    public void display() {
+        System.out.println("Student ID: " + getstudentID());
+        System.out.println("Student Name: " + getstudentName());
+        System.out.println("Program: " + getprogram());
     }
 }

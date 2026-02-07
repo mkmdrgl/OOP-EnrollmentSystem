@@ -8,6 +8,12 @@ public class Course {
     public Course() {
     }
 
+    public Course(String courseID, String courseName, String program) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.program = program;
+    }
+
     public String getcourseID() {
         return courseID;
     }
@@ -30,6 +36,12 @@ public class Course {
 
     public void setprogram(String program) {
         this.program = program;
+    }
+
+    public void display() {
+        System.out.println("Course ID: " + getcourseID());
+        System.out.println("Course Name: " + getcourseName());
+        System.out.println("Course: " + getprogram());
     }
 
 }
