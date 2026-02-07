@@ -31,5 +31,4 @@ public class Student {
     public void setprogram(String program) {
         this.program = program;
     }
-
 }
