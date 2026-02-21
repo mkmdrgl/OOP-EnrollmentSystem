@@ -24,7 +24,7 @@ public class StudentEnrollment {
                 System.out.print("Enter new name: ");
                 String name = input.nextLine();
 
-                System.out.println("Enter new program: ");
+                System.out.print("Enter new program: ");
                 String program = input.nextLine();
 
                 studentsList.set(i, new Student(student.getstudentID(), name, program));

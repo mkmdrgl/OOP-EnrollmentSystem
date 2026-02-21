@@ -14,6 +14,9 @@ public class Student {
         this.program = program;
     }
 
+    public Student(int i) {
+    }
+
     public String getstudentID() {
         return studentID;
     }

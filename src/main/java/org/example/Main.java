@@ -30,14 +30,19 @@ public class Main {
         StudentEnrollment studentEnrollment = new StudentEnrollment();
 
         // Create
-        studentEnrollment.addStudent(new Student("A000123", "John Doe", "BS Information Technology"));
-        studentEnrollment.addStudent(new Student("B000124", "Jane Doe", "BS Information Technology"));
+        studentEnrollment.addStudent(new Student("1", "John Doe", "BS Information Technology"));
+        studentEnrollment.addStudent(new Student("2", "Jane Doe", "BS Information Technology"));
 
         // Read
         studentEnrollment.displayAll();
 
         // Update
+        studentEnrollment.updateStudent(new Student("1", "John Doe", "BS Information Technology"));
 
+        // Remove
+        studentEnrollment.delete(new Student(2));
+
+        studentEnrollment.displayAll();
 
     }
 }
