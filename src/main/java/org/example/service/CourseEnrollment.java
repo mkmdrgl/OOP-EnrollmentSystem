@@ -18,10 +18,10 @@ public class CourseEnrollment {
     public void updateCourse (Course course) {
         for(int i = 0; i < coursesList.size(); i++) {
             if(coursesList.get(i).getcourseID().equals(course.getcourseID())) {
-                System.out.print("Enter new course name: ");
+                System.out.print("Enter new course: ");
                 String name = input.nextLine();
 
-                System.out.println("Enter new program name: ");
+                System.out.print("Enter new program: ");
                 String program = input.nextLine();
 
                 coursesList.set(i, new Course(course.getcourseID(), name, program));

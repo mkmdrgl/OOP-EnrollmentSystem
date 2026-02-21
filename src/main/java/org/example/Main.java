@@ -20,6 +20,8 @@ public class Main {
 
         studentEnrollment.displayAll();
 
+        System.out.println("\n");
+
         CourseEnrollment courseEnrollment = new CourseEnrollment();
 
         courseEnrollment.addCourse(new Course("1", "Integrative Programming", "BS Information Technology"));
@@ -27,9 +29,11 @@ public class Main {
 
         courseEnrollment.displayAll();
 
-        courseEnrollment.updateCourse(new Course("2", "Linux System", "BS Information Technology"));
+        courseEnrollment.updateCourse(new Course("1", "Integrative Programming", "BS Information Technology"));
 
-        courseEnrollment.deleteCourse(new Course("1"));
+        courseEnrollment.deleteCourse(new Course("2"));
+
+        courseEnrollment.displayAll();
 
     }
 }
