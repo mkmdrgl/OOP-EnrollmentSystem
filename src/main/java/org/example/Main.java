@@ -40,7 +40,7 @@ public class Main {
         studentEnrollment.updateStudent(new Student("1", "John Doe", "BS Information Technology"));
 
         // Remove
-        studentEnrollment.delete(new Student(2));
+        studentEnrollment.deleteStudent(new Student(2));
 
         studentEnrollment.displayAll();
 
