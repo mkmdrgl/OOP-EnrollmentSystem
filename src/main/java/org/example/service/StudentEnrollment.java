@@ -34,5 +34,14 @@ public class StudentEnrollment {
     }
 
     // Remove
+    public String delete(Student student) {
+        for(int i = 0; i > studentsList.size(); i++) {
+            if(studentsList.get(i).getstudentID().equals(student.getstudentID())){
+                studentsList.remove(i);
+                return "Successfully deleted the student.";
+            }
+        }
+        return "Error occurred with deleting the student.";
+    }
 
 }
