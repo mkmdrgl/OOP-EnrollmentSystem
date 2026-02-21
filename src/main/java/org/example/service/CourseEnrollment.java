@@ -12,7 +12,7 @@ public class CourseEnrollment {
     }
 
     public void displayAll() {
-        System.out.print(coursesList);
+        System.out.println(coursesList);
     }
 
     public void updateCourse (Course course) {
