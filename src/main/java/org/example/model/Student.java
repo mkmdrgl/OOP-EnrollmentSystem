@@ -11,7 +11,8 @@ public class Student {
         this.program = program;
     }
 
-    public Student() {
+    public Student(String studentID) {
+        this.studentID = studentID;
     }
 
     public String getstudentID() {
