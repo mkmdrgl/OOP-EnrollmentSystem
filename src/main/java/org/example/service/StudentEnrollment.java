@@ -35,7 +35,7 @@ public class StudentEnrollment {
 
     // Remove
     public String deleteStudent(Student student) {
-        for(int i = 0; i > studentsList.size(); i++) {
+        for(int i = 0; i < studentsList.size(); i++) {
             if(studentsList.get(i).getstudentID().equals(student.getstudentID())){
                 studentsList.remove(i);
                 return "Successfully deleted the student.";

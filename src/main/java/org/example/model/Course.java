@@ -38,10 +38,13 @@ public class Course {
         this.program = program;
     }
 
-    public void display() {
-        System.out.println("Course ID: " + getcourseID());
-        System.out.println("Course Name: " + getcourseName());
-        System.out.println("Course: " + getprogram());
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID='" + courseID + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", program='" + program + '\'' +
+                '}';
     }
 
 }
