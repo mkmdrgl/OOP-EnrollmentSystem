@@ -25,5 +25,19 @@ public class Main {
 //        course.setcourseName("Integrative Programming");
 //        course.setprogram("BS Information Technology");
 //        course.display();
+
+        // Student Enrollment
+        StudentEnrollment studentEnrollment = new StudentEnrollment();
+
+        // Create
+        studentEnrollment.addStudent(new Student("A000123", "John Doe", "BS Information Technology"));
+        studentEnrollment.addStudent(new Student("B000124", "Jane Doe", "BS Information Technology"));
+
+        // Read
+        studentEnrollment.displayAll();
+
+        // Update
+
+
     }
 }

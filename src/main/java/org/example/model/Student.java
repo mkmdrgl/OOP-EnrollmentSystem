@@ -38,9 +38,12 @@ public class Student {
         this.program = program;
     }
 
-    public void display() {
-        System.out.println("Student ID: " + getstudentID());
-        System.out.println("Student Name: " + getstudentName());
-        System.out.println("Program: " + getprogram());
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentID='" + studentID + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", program='" + program + '\'' +
+                '}';
     }
 }

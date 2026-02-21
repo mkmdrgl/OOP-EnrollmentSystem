@@ -13,21 +13,23 @@ public class StudentEnrollment {
     }
 
     // Read
-    public void displayAll(Student student) {
-        System.out.print(studentsList);
+    public void displayAll() {
+        System.out.println(studentsList);
     }
 
     // Update
     public void updateStudent(Student student) {
         for (int i = 0; i < studentsList.size(); i++) {
-            System.out.print("Enter new name: ");
-            String name = input.nextLine();
+            if (studentsList.get(i).getstudentID().equals(student.getstudentID())) {
+                System.out.print("Enter new name: ");
+                String name = input.nextLine();
 
-            System.out.println("Enter new program: ");
-            String program = input.nextLine();
+                System.out.println("Enter new program: ");
+                String program = input.nextLine();
 
-            studentsList.set(i, new Student(student.getstudentID(), name, program));
-            break;
+                studentsList.set(i, new Student(student.getstudentID(), name, program));
+                break;
+            }
         }
     }
 
