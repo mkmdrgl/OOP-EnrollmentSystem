@@ -17,6 +17,3 @@
 
 **Main Class**
 ![Image](src/main/resources/Images/Screenshot 2026-03-07 121035.png)
-
-**Output**
-![Image](src/main/resources/Images/Screenshot 2026-03-07 114928.png)
