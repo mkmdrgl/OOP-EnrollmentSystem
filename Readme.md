@@ -17,3 +17,6 @@
 
 **Main Class**
 ![Image](src/main/resources/Images/Main.png)
+
+**Output**
+![Image](src/main/resources/Images/Output.png)
