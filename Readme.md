@@ -7,16 +7,16 @@
 **1. Description**: Inheritance
 
 **Person Class**
-![Image](src/main/resources/Images/Screenshot 2026-03-07 120518.png)
+![Image](src/main/resources/Images/Person.png)
 
 **Student Class**
-![Image](src/main/resources/Images/Screenshot 2026-03-07 120703.png)
+![Image](src/main/resources/Images/Student.png)
 
 **Instructor Class**
-![Image](src/main/resources/Images/Screenshot 2026-03-07 120920.png)
+![Image](src/main/resources/Images/Instructor.png)
 
 **Main Class**
-![Image](src/main/resources/Images/Screenshot 2026-03-07 121035.png)
+![Image](src/main/resources/Images/Main.png)
 
 **Output**
-![Image](src/main/resources/Images/Screenshot 2026-03-07 114928.png)
+![Image](src/main/resources/Images/Output.png)
