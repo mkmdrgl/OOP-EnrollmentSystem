@@ -17,31 +17,4 @@ public class StudentEnrollment {
         System.out.println(studentsList);
     }
 
-    // Update
-    public void updateStudent(Student student) {
-        for (int i = 0; i < studentsList.size(); i++) {
-            if (studentsList.get(i).getstudentID().equals(student.getstudentID())) {
-                System.out.print("Enter new student name: ");
-                String name = input.nextLine();
-
-                System.out.print("Enter new student program: ");
-                String program = input.nextLine();
-
-                studentsList.set(i, new Student(student.getstudentID(), name, program));
-                break;
-            }
-        }
-    }
-
-    // Remove
-    public String deleteStudent(Student student) {
-        for(int i = 0; i < studentsList.size(); i++) {
-            if(studentsList.get(i).getstudentID().equals(student.getstudentID())){
-                studentsList.remove(i);
-                return "Successfully deleted the student.";
-            }
-        }
-        return "Error occurred with deleting the student.";
-    }
-
 }
