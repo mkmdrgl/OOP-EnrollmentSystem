@@ -16,7 +16,8 @@ public class Main {
 
         System.out.println(instructor1.getID());
         System.out.println(instructor1.getName());
-
+        instructor1.setCourses("Integrative Programming and Technologies");
+        System.out.println(instructor1.getCourses());
 
     }
 }
