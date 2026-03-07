@@ -1,50 +1,18 @@
 package org.example.model;
 
-public class Student {
-    private String studentID;
-    private String studentName;
+public class Student extends Person{
     private String program;
 
-    public Student(String studentID, String studentName, String program) {
-        this.studentID = studentID;
-        this.studentName = studentName;
-        this.program = program;
+    public Student(int id, String name) {
+        super(id, name);
     }
 
-    public Student(String studentID) {
-        this.studentID = studentID;
-    }
-
-    public String getstudentID() {
-        return studentID;
-    }
-
-    public String getstudentName() {
-        return studentName;
-    }
-
-    public String getprogram() {
+    public String getProgram() {
         return program;
     }
 
-    public void setstudentID(String studentID) {
-        this.studentID = studentID;
-    }
-
-    public void setstudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public void setprogram(String program) {
+    public void setProgram(String program) {
         this.program = program;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "studentID='" + studentID + '\'' +
-                ", studentName='" + studentName + '\'' +
-                ", program='" + program + '\'' +
-                '}';
-    }
 }

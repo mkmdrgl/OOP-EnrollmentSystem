@@ -1,39 +1,25 @@
 package org.example;
 import org.example.model.Student;
-import org.example.model.Course;
-import org.example.service.StudentEnrollment;
-import org.example.service.CourseEnrollment;
+import org.example.model.Instructor;
 
 public class Main {
     public static void main(String[] args) {
 
-        StudentEnrollment studentEnrollment = new StudentEnrollment();
+        Student student1 = new Student(2024390901, "Mikaela Alexa A. Madrigal");
+        Instructor instructor1 = new Instructor (2024109093, "Erika Trixie P. Dirilo");
 
-        studentEnrollment.addStudent(new Student("1", "John Doe", "BS Information Technology"));
-        studentEnrollment.addStudent(new Student("2", "Jane Doe", "BS Information Technology"));
+        System.out.println("Student ID: " + student1.getID());
+        System.out.println("Student Name: " + student1.getName());
+        student1.setProgram("BS Information Technology");
+        System.out.println("Student Program: " + student1.getProgram());
 
-        studentEnrollment.displayAll();
+        System.out.print("\n");
 
-        studentEnrollment.updateStudent(new Student("1", "John Doe", "BS Information Technology"));
-
-        studentEnrollment.deleteStudent(new Student("2"));
-
-        studentEnrollment.displayAll();
-
-        System.out.println("\n");
-
-        CourseEnrollment courseEnrollment = new CourseEnrollment();
-
-        courseEnrollment.addCourse(new Course("1", "Integrative Programming", "BS Information Technology"));
-        courseEnrollment.addCourse(new Course("2", "Linux System", "BS Information Technology"));
-
-        courseEnrollment.displayAll();
-
-        courseEnrollment.updateCourse(new Course("1", "Integrative Programming", "BS Information Technology"));
-
-        courseEnrollment.deleteCourse(new Course("2"));
-
-        courseEnrollment.displayAll();
+        System.out.println("Instructor ID: " + instructor1.getID());
+        System.out.println("Instructor Name: " + instructor1.getName());
+        instructor1.setCourses("Integrative Programming and Technologies");
+        System.out.println("Instructor Course: " + instructor1.getCourses());
 
     }
 }
+
