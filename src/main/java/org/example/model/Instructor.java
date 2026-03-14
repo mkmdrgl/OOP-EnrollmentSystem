@@ -16,7 +16,7 @@ public class Instructor extends Person {
     }
 
     public void mainTask() {
-        System.out.println("Teach");
+        System.out.println("Main Task: Teach");
     }
 
 }
