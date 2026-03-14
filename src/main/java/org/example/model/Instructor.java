@@ -15,4 +15,8 @@ public class Instructor extends Person {
         this.courses = courses;
     }
 
+    public void mainTask() {
+        System.out.println("Main Task: Teach");
+    }
+
 }
