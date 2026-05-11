@@ -13,4 +13,10 @@ public class IStudentService {
         studentList.add(student);
     }
 
+    public void displayAll() {
+        System.out.println(studentList);
+    }
+
+
+
 }
