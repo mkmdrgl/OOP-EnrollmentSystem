@@ -16,15 +16,37 @@ class StudentServiceTest {
     }
 
     @Test
+    void shouldAddStudentSuccessfully() throws DuplicateIDExcep {
+        Student s1 = new Student("S101", "Alice", "Engineering");
+        studentService.addStudent(s1);
+        assertEquals(1, studentService.getAllStudents().size());
+    }
+
+    @Test
     void shouldThrowExceptionWhenAddingDuplicateID() throws DuplicateIDExcep {
         Student s1 = new Student("S101", "Alice", "Engineering");
-        Student s2 = new Student("S101", "Bob", "Arts"); // Same ID
+        Student s2 = new Student("S101", "Bob", "Arts");
 
         studentService.addStudent(s1);
 
         assertThrows(DuplicateIDExcep.class, () -> {
             studentService.addStudent(s2);
-        }, "Adding the same ID twice should trigger DuplicateIDExcep");
+        });
+    }
+
+    @Test
+    void shouldUpdateStudentSuccessfully() throws DuplicateIDExcep {
+        Student s1 = new Student("S101", "Alice", "Engineering");
+        studentService.addStudent(s1);
+
+        assertDoesNotThrow(() -> studentService.updateStudent("S101"));
+    }
+
+    @Test
+    void shouldThrowExceptionWhenUpdateFailsToFindID() {
+        assertThrows(DuplicateIDExcep.class, () -> {
+            studentService.updateStudent("NON_EXISTENT_ID");
+        });
     }
 
     @Test
@@ -39,9 +61,32 @@ class StudentServiceTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUpdateFailsToFindID() {
+    void shouldReturnErrorWhenRemovingNonExistentStudent() {
+        String result = studentService.removeStudent("999");
+        assertEquals("Error: Student not found", result);
+    }
+
+    @Test
+    void shouldNotCrashWhenDisplayingEmptyList() {
+        assertDoesNotThrow(() -> studentService.displayAll());
+    }
+
+    @Test
+    void shouldDisplayAllStudents() throws DuplicateIDExcep {
+        studentService.addStudent(new Student("S1", "Alice", "CS"));
+        assertDoesNotThrow(() -> studentService.displayAll());
+    }
+
+    @Test
+    void shouldHandleRemoveOnEmptyList() {
+        String result = studentService.removeStudent("S999");
+        assertEquals("Error: Student not found", result);
+    }
+
+    @Test
+    void shouldHandleUpdateOnEmptyList() {
         assertThrows(DuplicateIDExcep.class, () -> {
-            studentService.updateStudent("NON_EXISTENT_ID");
+            studentService.updateStudent("S999");
         });
     }
 }

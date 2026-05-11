@@ -16,7 +16,7 @@ class TuitionFeePaymentTest {
 
     @Test
     void shouldMakeAPayment() throws InvalidPaymentExcep {
-        double totalTuition = tuitionService.calculateFee(3, 0.10); // 2700.0
+        double totalTuition = tuitionService.calculateFee(3, 0.10);
         double remainingBalance = tuitionService.makePayment(totalTuition, 1000.0);
         assertEquals(1700.0, remainingBalance, "The remaining balance should be 1700 after paying 1000");
     }
