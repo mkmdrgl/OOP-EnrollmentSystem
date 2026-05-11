@@ -11,10 +11,6 @@ public class Student {
         this.program = program;
     }
 
-    public Student(String studentID) {
-        this.studentID = studentID;
-    }
-
     public String getstudentID() {
         return studentID;
     }
@@ -23,7 +19,7 @@ public class Student {
         return studentName;
     }
 
-    public String getprogram() {
+    public String getProgram() {
         return program;
     }
 
