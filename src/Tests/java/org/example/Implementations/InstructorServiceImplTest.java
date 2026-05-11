@@ -52,4 +52,27 @@ class InstructorServiceImplTest {
         assertDoesNotThrow(() -> instructorService.getInstructorDetails("INS01"));
     }
 
+    @Test
+    void shouldPrintNotFoundWhenInstructorMissing() {
+        assertDoesNotThrow(() -> instructorService.getInstructorDetails("999"));
+    }
+
+    @Test
+    void shouldAssignCourseWhenInstructorExists() throws DuplicateIDExcep {
+        instructorService.addInstructor(new Instructor("INS01", "Dr. Smith"));
+        simulateUserInput("JAVA101\n");
+        assertDoesNotThrow(() -> instructorService.assignInstructorToSection("INS01"));
+    }
+
+    @Test
+    void shouldNotAssignWhenInstructorNotFound() {
+        assertDoesNotThrow(() -> instructorService.assignInstructorToSection("INVALID_ID"));
+    }
+
+    @Test
+    void shouldExecuteDisplayAll() throws DuplicateIDExcep {
+        instructorService.addInstructor(new Instructor("INS01", "Dr. Smith"));
+        assertDoesNotThrow(() -> instructorService.displayAll());
+    }
+
 }
