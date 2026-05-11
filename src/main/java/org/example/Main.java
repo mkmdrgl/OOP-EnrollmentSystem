@@ -100,3 +100,40 @@ public class Main {
             } catch (DuplicateIDExcep e) { System.err.println(e.getMessage()); }
         }
     }
+
+    private static void instructorMenu() {
+        boolean back = false;
+        while (!back) {
+            printHeader("INSTRUCTOR MANAGEMENT");
+            System.out.println(" [1] Add Instructor       [4] Display All");
+            System.out.println(" [2] Update Name          [5] View Specific Details");
+            System.out.println(" [3] Remove Instructor    [6] Assign to Section");
+            System.out.println(" [0] Back");
+            System.out.print("\nSelection > ");
+            int choice = getIntInput();
+            try {
+                switch (choice) {
+                    case 1 -> {
+                        System.out.print("ID: "); String id = scanner.nextLine();
+                        System.out.print("Name: "); String name = scanner.nextLine();
+                        instructorService.addInstructor(new Instructor(id, name));
+                    }
+                    case 2 -> {
+                        System.out.print("ID to Update: ");
+                        instructorService.updateInstructor(scanner.nextLine());
+                    }
+                    case 3 -> {
+                        System.out.print("ID to Delete: ");
+                        System.out.println(instructorService.removeInstructor(scanner.nextLine()));
+                    }
+                    case 4 -> instructorService.displayAll();
+                    case 5 -> {
+                        System.out.print("ID to Find: ");
+                        instructorService.getInstructorDetails(scanner.nextLine());
+                    }
+                    case 6 -> assignInstructorToSectionWorkflow();
+                    case 0 -> back = true;
+                }
+            } catch (DuplicateIDExcep e) { System.err.println(e.getMessage()); }
+        }
+    }
