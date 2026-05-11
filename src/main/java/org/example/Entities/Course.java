@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.Entities;
 
 public class Course {
     private String courseID;
