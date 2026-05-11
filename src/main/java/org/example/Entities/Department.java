@@ -34,10 +34,9 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department{" +
-                "departmentName='" + departmentName + '\'' +
-                ", sections=" + sections +
-                '}';
+        return String.format("Department [Name: %s, Total Sections: %d]",
+                getDepartment(),
+                (getSections() != null ? getSections().size() : 0));
     }
 
 }

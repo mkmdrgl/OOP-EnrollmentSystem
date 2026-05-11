@@ -1,18 +1,24 @@
 package org.example.Implementations;
 
-import org.example.Entities.Course;
+import org.example.Entities.Section;
 import org.example.Entities.Instructor;
 import org.example.Interfaces.IInstructorService;
+import org.example.Exceptions.DuplicateIDExcep;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InstructorServiceImpl implements IInstructorService{
-    Scanner input = new Scanner(System.in);
+public class InstructorServiceImpl implements IInstructorService {
+    private Scanner input = new Scanner(System.in);
     private ArrayList<Instructor> instructorList = new ArrayList<>();
-    private String newCourseID;
 
-    public void addInstructor(Instructor instructor) {
+    public void addInstructor(Instructor instructor) throws DuplicateIDExcep {
+        for (Instructor inst : instructorList) {
+            if (inst.getID().equals(instructor.getID())) {
+                throw new DuplicateIDExcep("Error: Instructor ID " + instructor.getID() + " is already registered.");
+            }
+        }
         instructorList.add(instructor);
+        System.out.println("Instructor " + instructor.getName() + " added successfully.");
     }
 
     public void getInstructorDetails(String instructorID) {
@@ -25,24 +31,50 @@ public class InstructorServiceImpl implements IInstructorService{
         System.out.println("Instructor not found.");
     }
 
-    public void assignInstructorToSection(String instructorID) {
-        for (int i = 0; i < instructorList.size(); i++) {
-            if (instructorList.get(i).getID().equals(instructorID)) {
-                System.out.print("Enter the new course ID to assign: ");
-                String newCourseID = input.nextLine();
+    public void assignInstructorToSection(Instructor instructor, Section section) {
+        if (instructor != null && section != null) {
+            section.setAssignedInstructor(instructor);
+            System.out.println("Assigned Instructor " + instructor.getName() +
+                    " to Section " + section.getSectionName());
+        } else {
+            System.out.println("Error: Assignment failed. Instructor or Section is null.");
+        }
+    }
 
-                Course newCourseObject = new Course(newCourseID);
-                instructorList.get(i).setCourse(newCourseObject);
+    public void updateInstructor(String instructorID) throws DuplicateIDExcep {
+        for (Instructor inst : instructorList) {
+            if (inst.getID().equals(instructorID)) {
+                System.out.print("Enter new name for instructor: ");
+                inst.setName(input.nextLine());
 
-                System.out.println("Instructor assigned successfully.");
+                System.out.println("Update successful.");
                 return;
             }
         }
-        System.out.println("Instructor not found.");
+        throw new DuplicateIDExcep("Update failed: ID " + instructorID + " not found.");
+    }
+
+    public String removeInstructor(String instructorID) {
+        for (int i = 0; i < instructorList.size(); i++) {
+            if (instructorList.get(i).getID().equals(instructorID)) {
+                instructorList.remove(i);
+                return "Instructor " + instructorID + " has been removed.";
+            }
+        }
+        return "Error: Instructor not found";
     }
 
     public void displayAll() {
-        System.out.println(instructorList);
+        if (instructorList.isEmpty()) {
+            System.out.println("No instructors registered in the system.");
+        } else {
+            for (Instructor inst : instructorList) {
+                System.out.println(inst);
+            }
+        }
     }
 
+    public ArrayList<Instructor> getAllInstructors() {
+        return instructorList;
+    }
 }

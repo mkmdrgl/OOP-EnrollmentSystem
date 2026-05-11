@@ -5,11 +5,7 @@ public abstract class Person {
     private String personName;
 
     public Person() {
-        this("Unknown");
-    }
 
-    public Person(String id) {
-        this(id, "Unknown");
     }
 
     public Person(String personID, String personName) {
@@ -31,6 +27,10 @@ public abstract class Person {
 
     public void getName(String name) {
         this.personName = personID;
+    }
+
+    public void setName(String name) {
+        this.personName = name;
     }
 
     @Override

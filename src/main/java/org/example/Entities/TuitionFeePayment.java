@@ -1,28 +1,23 @@
 package org.example.Entities;
 
 public class TuitionFeePayment {
-    private final double PRICE_PER_UNIT = 1000.00;
-    private double balance;
     private double totalTuition;
+    private double balance;
 
-    public double calculateTuitionFee(int units, double discountRate) {
-        totalTuition = units * PRICE_PER_UNIT;
-
-        if (discountRate != 0) {
-            totalTuition = totalTuition - (totalTuition * discountRate);
-        }
-        return totalTuition;
+    public void setTuition(double totalTuition) {
+        this.totalTuition = totalTuition;
+        this.balance = totalTuition;
     }
 
-    public void makePayment(double amount) {
-        balance = totalTuition - amount;
-    }
-
-    public double getRemainingBalance() {
+    public double getBalance() {
         return balance;
     }
 
+    public void updateBalance(double newBalance) {
+        this.balance = newBalance;
+    }
+
     public boolean isFullyPaid() {
-        return balance == 0 ? true : false;
+        return balance <= 0;
     }
 }

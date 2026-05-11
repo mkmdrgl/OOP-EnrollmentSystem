@@ -1,9 +1,12 @@
 package org.example.Interfaces;
 
+import org.example.Entities.Department;
 import org.example.Entities.Student;
-import org.example.Entities.Course;
+import org.example.Entities.Section;
+import org.example.Exceptions.SectionFullExcep;
 
 public interface IEnrollmentService {
-    void enrollStudentInSection(Student student, Course course);
+    void enrollStudentInSection(Student student, Section section) throws SectionFullExcep;
     void viewDepartmentHierarchy();
+    void displayDepartmentHierarchy(Department department);
 }
