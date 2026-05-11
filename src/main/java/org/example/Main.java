@@ -68,3 +68,35 @@ public class Main {
         con.getSections().add(new Section("G4B", 30));
         universityDepartments.add(con);
     }
+
+    private static void studentMenu() {
+        boolean back = false;
+        while (!back) {
+            printHeader("STUDENT MANAGEMENT");
+            System.out.println(" [1] Register Student     [3] Remove Student");
+            System.out.println(" [2] Update Information   [4] List All Students");
+            System.out.println(" [0] Back");
+            System.out.print("\nSelection > ");
+            int choice = getIntInput();
+            try {
+                switch (choice) {
+                    case 1 -> {
+                        System.out.print("ID: "); String id = scanner.nextLine();
+                        System.out.print("Name: "); String name = scanner.nextLine();
+                        System.out.print("Program: "); String prog = scanner.nextLine();
+                        studentService.addStudent(new Student(id, name, prog));
+                    }
+                    case 2 -> {
+                        System.out.print("Enter ID to Update: ");
+                        studentService.updateStudent(scanner.nextLine());
+                    }
+                    case 3 -> {
+                        System.out.print("Enter ID to Delete: ");
+                        System.out.println(studentService.removeStudent(scanner.nextLine()));
+                    }
+                    case 4 -> studentService.displayAll();
+                    case 0 -> back = true;
+                }
+            } catch (DuplicateIDExcep e) { System.err.println(e.getMessage()); }
+        }
+    }
