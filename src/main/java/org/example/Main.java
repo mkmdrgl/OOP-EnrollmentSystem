@@ -249,3 +249,22 @@ public class Main {
         }
     }
 
+    private static void assignInstructorToSectionWorkflow() {
+        ArrayList<Instructor> instructors = instructorService.getAllInstructors();
+        if (instructors.isEmpty()) {
+            System.out.println("No instructors registered.");
+            return;
+        }
+
+        System.out.println("\n--- Select Instructor ---");
+        for (int i = 0; i < instructors.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + instructors.get(i).getName());
+        }
+        int instIdx = getIntInput() - 1;
+        if (instIdx < 0 || instIdx >= instructors.size()) return;
+
+        Section section = selectSectionFromAll();
+        if (section != null) {
+            instructorService.assignInstructorToSection(instructors.get(instIdx), section);
+        }
+    }
