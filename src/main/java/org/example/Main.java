@@ -44,3 +44,27 @@ public class Main {
             }
         }
     }
+
+    private static void initializeUniversity() {
+        Department ite = new Department("COLLEGE OF INFORMATION TECHNOLOGY AND ENGINEERING");
+        ite.getSections().add(new Section("IT2A", 30));
+        ite.getSections().add(new Section("IT2B", 30));
+        ite.getSections().add(new Section("IT2C", 30));
+        ite.getSections().add(new Section("IT2D", 30));
+        universityDepartments.add(ite);
+
+        Department ceas = new Department("COLLEGE OF EDUCATION, ARTS, AND SCIENCES");
+        ceas.getSections().add(new Section("W1A", 30));
+        ceas.getSections().add(new Section("W1B", 30));
+        universityDepartments.add(ceas);
+
+        Department cbeam = new Department("COLLEGE OF BUSINESS, ECONOMICS, ACCOUNTACY, AND MANAGEMENT");
+        cbeam.getSections().add(new Section("L3A", 30));
+        cbeam.getSections().add(new Section("L3B", 30));
+        universityDepartments.add(cbeam);
+
+        Department con = new Department("COLLEGE OF NURSING");
+        con.getSections().add(new Section("G4A", 30));
+        con.getSections().add(new Section("G4B", 30));
+        universityDepartments.add(con);
+    }
