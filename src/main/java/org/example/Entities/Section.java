@@ -46,4 +46,14 @@ public class Section {
     public List<Student> getEnrolledStudents() {
         return enrolledStudents;
     }
+
+    @Override
+    public String toString() {
+        return "Section{" +
+                "sectionName='" + sectionName + '\'' +
+                ", maxCapacity=" + maxCapacity +
+                ", assignedInstructor=" + assignedInstructor +
+                ", enrolledStudents=" + enrolledStudents +
+                '}';
+    }
 }

@@ -20,4 +20,11 @@ public class Instructor extends Person {
         this.course = course;
     }
 
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "course='" + course + '\'' +
+                '}';
+    }
+
 }

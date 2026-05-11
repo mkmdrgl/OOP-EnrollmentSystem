@@ -31,4 +31,13 @@ public class Department {
     public void setSections(List<Section> sections) {
         this.sections = sections;
     }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "departmentName='" + departmentName + '\'' +
+                ", sections=" + sections +
+                '}';
+    }
+
 }
