@@ -16,7 +16,7 @@ public class Instructor extends Person {
         return course;
     }
 
-    public void setCourse() {
+    public void setCourse(String newCourse) {
         this.course = course;
     }
 
