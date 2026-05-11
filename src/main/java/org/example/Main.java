@@ -137,3 +137,35 @@ public class Main {
             } catch (DuplicateIDExcep e) { System.err.println(e.getMessage()); }
         }
     }
+
+    private static void courseMenu() {
+        boolean back = false;
+        while (!back) {
+            printHeader("COURSE MANAGEMENT");
+            System.out.println(" [1] Add Course      [2] Update Course");
+            System.out.println(" [3] Remove Course   [4] Display All");
+            System.out.println(" [0] Back");
+            System.out.print("\nSelection > ");
+            int choice = getIntInput();
+            try {
+                switch (choice) {
+                    case 1 -> {
+                        System.out.print("Code: "); String id = scanner.nextLine();
+                        System.out.print("Title: "); String name = scanner.nextLine();
+                        System.out.print("Program: "); String prog = scanner.nextLine();
+                        courseService.addCourse(new Course(id, name, prog));
+                    }
+                    case 2 -> {
+                        System.out.print("ID to Update: ");
+                        courseService.updateCourse(scanner.nextLine());
+                    }
+                    case 3 -> {
+                        System.out.print("ID to Delete: ");
+                        System.out.println(courseService.removeCourse(scanner.nextLine()));
+                    }
+                    case 4 -> courseService.displayAll();
+                    case 0 -> back = true;
+                }
+            } catch (InvalidInputExcep e) { System.err.println(e.getMessage()); }
+        }
+    }
