@@ -33,6 +33,10 @@ public abstract class Person {
         this.personName = personID;
     }
 
+    public void setName(String name) {
+        this.personName = name;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
