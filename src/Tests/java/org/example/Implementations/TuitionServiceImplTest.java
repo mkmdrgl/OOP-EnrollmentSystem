@@ -50,4 +50,14 @@ class TuitionFeePaymentTest {
             tuitionService.makePayment(totalTuition, -50.0);
         }, "Should throw InvalidPaymentExcep for negative payments");
     }
+
+    @Test
+    void shouldThrowExceptionWhenPaymentExceedsTotalTuition() {
+        double totalTuition = 1000.0;
+        double overPayment = 1500.0;
+
+        assertThrows(InvalidPaymentExcep.class, () -> {
+            tuitionService.makePayment(totalTuition, overPayment);
+        }, "Should throw InvalidPaymentExcep when paying more than what is owed");
+    }
 }
