@@ -40,7 +40,8 @@ public class StudentServiceImpl implements IStudentService {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentList.get(i).getID().equals(studentID)) {
                 studentList.remove(i);
-                return "Successfully Deleted";
+
+                return "Student " + studentID + " has been removed.";
             }
         }
         return "Error: Student not found";
