@@ -4,7 +4,7 @@ public class Instructor extends Person {
     private Course course;
 
     public Instructor(String instructorID, String instructorName) {
-        super();
+        super(instructorID, instructorName);
     }
 
     public Instructor(String instructorID, String instructorName, Course course) {
@@ -23,7 +23,8 @@ public class Instructor extends Person {
     @Override
     public String toString() {
         return "Instructor{" +
-                "name='" + getName() + '\'' +
+                "ID='" + getID() + '\'' + // Added ID to toString
+                ", name='" + getName() + '\'' +
                 ", course=" + (course != null ? course.getcourseName() : "None") +
                 '}';
     }
