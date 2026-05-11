@@ -13,10 +13,23 @@ public class IStudentService {
         studentList.add(student);
     }
 
-    public void displayAll() {
-        System.out.println(studentList);
-    }
+    public void updateStudent(String studentID) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getpersonID().equals(studentID)) {
+                System.out.print("Enter new name: ");
+                String name = input.nextLine();
 
+                System.out.print("Enter new program: ");
+                String program = input.nextLine();
+
+                studentList.get(i).setpersonName(name);
+                studentList.get(i).setProgram(program);
+                System.out.println("Student updated successfully.");
+                return;
+            }
+        }
+        System.out.println("Student not found.");
+    }
 
 
 }

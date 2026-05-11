@@ -1,8 +1,8 @@
 package org.example.Entities;
 
-public class Person {
-    private String id;
-    private String name;
+public abstract class Person {
+    private String personID;
+    private String personName;
 
     public Person() {
         this("Unknown");
@@ -12,32 +12,32 @@ public class Person {
         this(id, "Unknown");
     }
 
-    public Person(String id, String name) {
-        this.id = id;
-        this.name = name;
+    public Person(String personID, String personName) {
+        this.personID = personID;
+        this.personName = personName;
     }
 
     public String getID() {
-        return id;
+        return personID;
     }
 
     public String getName() {
-        return name;
+        return personName;
     }
 
     public void getID(String id) {
-        this.id = id;
+        this.personID = personID;
     }
 
     public void getName(String name) {
-        this.name = name;
+        this.personName = personID;
     }
 
     @Override
     public String toString() {
         return "Person{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "id='" + personID + '\'' +
+                ", name='" + personName + '\'' +
                 '}';
     }
 
