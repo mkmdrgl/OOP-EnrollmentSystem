@@ -3,7 +3,7 @@ package org.example.Entities;
 public class Instructor extends Person {
     private Course course;
 
-    public Instructor() {
+    public Instructor(String instructorID, String instructorName) {
         super();
     }
 
