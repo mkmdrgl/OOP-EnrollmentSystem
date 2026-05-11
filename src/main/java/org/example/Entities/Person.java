@@ -4,6 +4,14 @@ public class Person {
     private String id;
     private String name;
 
+    public Person() {
+        this("Unknown");
+    }
+
+    public Person(String id) {
+        this(id, "Unknown");
+    }
+
     public Person(String id, String name) {
         this.id = id;
         this.name = name;

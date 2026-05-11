@@ -1,46 +1,18 @@
 package org.example.Entities;
 
-public class Student {
-    private String studentID;
-    private String studentName;
+import org.example.Entities.Person;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student extends Person {
     private String program;
-
-    public Student(String studentID, String studentName, String program) {
-        this.studentID = studentID;
-        this.studentName = studentName;
-        this.program = program;
-    }
-
-    public String getstudentID() {
-        return studentID;
-    }
-
-    public String getstudentName() {
-        return studentName;
-    }
 
     public String getProgram() {
         return program;
-    }
-
-    public void setstudentID(String studentID) {
-        this.studentID = studentID;
-    }
-
-    public void setstudentName(String studentName) {
-        this.studentName = studentName;
     }
 
     public void setprogram(String program) {
         this.program = program;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "studentID='" + studentID + '\'' +
-                ", studentName='" + studentName + '\'' +
-                ", program='" + program + '\'' +
-                '}';
-    }
 }
