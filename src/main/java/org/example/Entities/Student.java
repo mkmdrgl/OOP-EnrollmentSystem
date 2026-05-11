@@ -16,11 +16,15 @@ public class Student extends Person {
         this.program = program;
     }
 
+    public Student(String id, String name) {
+        super(id, name);
+    }
+
     public String getProgram() {
         return program;
     }
 
-    public void setprogram(String program) {
+    public void setProgram(String program) {
         this.program = program;
     }
 
@@ -31,9 +35,9 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
-                "program='" + program + '\'' +
-                ", enrolledCourses=" + enrolledCourses +
+                "ID='" + getID() + '\'' +
+                ", Name='" + getName() + '\'' +
+                ", program='" + program + '\'' +
                 '}';
     }
-
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class StudentServiceImpl implements IStudentService {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
     private ArrayList<Student> studentList = new ArrayList<>();
 
     public void addStudent(Student student) throws DuplicateIDExcep {
@@ -21,26 +21,23 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     public void updateStudent(String studentID) throws DuplicateIDExcep {
-        Student found = null;
         for (Student s : studentList) {
             if (s.getID().equals(studentID)) {
-                found = s;
-                break;
+                System.out.print("Enter new name for student: ");
+                s.setName(input.nextLine());
+                System.out.print("Enter new program: ");
+                s.setProgram(input.nextLine());
+                System.out.println("Update successful.");
+                return;
             }
         }
-
-        if (found == null) {
-            throw new DuplicateIDExcep("Update failed: ID " + studentID + " not found.");
-        }
-
-        System.out.println("Ready to update student: " + found.getName());
+        throw new DuplicateIDExcep("Update failed: ID " + studentID + " not found.");
     }
 
     public String removeStudent(String studentID) {
         for (int i = 0; i < studentList.size(); i++) {
             if (studentList.get(i).getID().equals(studentID)) {
                 studentList.remove(i);
-
                 return "Student " + studentID + " has been removed.";
             }
         }
@@ -48,11 +45,14 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     public void displayAll() {
-        System.out.println(studentList);
+        if (studentList.isEmpty()) {
+            System.out.println("No students registered.");
+        } else {
+            System.out.println(studentList);
+        }
     }
 
     public ArrayList<Student> getAllStudents() {
         return studentList;
     }
-
 }

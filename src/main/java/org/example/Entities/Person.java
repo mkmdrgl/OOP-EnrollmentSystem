@@ -5,11 +5,7 @@ public abstract class Person {
     private String personName;
 
     public Person() {
-        this("Unknown");
-    }
 
-    public Person(String id) {
-        this(id, "Unknown");
     }
 
     public Person(String personID, String personName) {
