@@ -24,6 +24,10 @@ public class Student extends Person {
         this.program = program;
     }
 
+    public List<Course> getEnrolledCourses() {
+        return enrolledCourses;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
