@@ -15,14 +15,14 @@ public class TuitionServiceImpl implements ITuitionService {
         return total;
     }
 
-    public double makePayment(double totalTuition, double amountPaid) throws InvalidPaymentExcep {
+    public double makePayment(double currentBalance, double amountPaid) throws InvalidPaymentExcep {
         if (amountPaid <= 0) {
             throw new InvalidPaymentExcep("Payment amount must be greater than zero.");
         }
-        if (amountPaid > totalTuition) {
-            throw new InvalidPaymentExcep("Payment cannot exceed total tuition.");
+        if (amountPaid > currentBalance) {
+            throw new InvalidPaymentExcep("Payment cannot exceed the remaining balance of " + currentBalance);
         }
-        return totalTuition - amountPaid;
+        return currentBalance - amountPaid;
     }
 
     public double getRemainingBalance(double totalTuition, double totalPaid) {
