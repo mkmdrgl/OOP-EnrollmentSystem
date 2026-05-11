@@ -2,6 +2,7 @@ package org.example.Implementations;
 
 import org.example.Entities.Course;
 import org.example.Interfaces.ICourseService;
+import org.example.Exceptions.InvalidInputExcep;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -9,8 +10,15 @@ public class CourseServiceImpl implements ICourseService {
     Scanner input = new Scanner(System.in);
     private ArrayList<Course> courseList = new ArrayList<>();
 
-    public void addCourse(Course course) {
+    public void addCourse(Course course) throws InvalidInputExcep {
+        if (course.getcourseID() == null || course.getcourseID().trim().isEmpty()) {
+            throw new InvalidInputExcep("Error: Course ID cannot be empty.");
+        }
+        if (course.getcourseName() == null || course.getcourseName().trim().isEmpty()) {
+            throw new InvalidInputExcep("Error: Course Name cannot be empty.");
+        }
         courseList.add(course);
+        System.out.println("Course added successfully.");
     }
 
     public void updateCourse(String courseID) {

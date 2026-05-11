@@ -32,17 +32,16 @@ class InstructorServiceImplTest {
         Instructor ins = new Instructor("INS01", "Dr. Smith");
         instructorService.addInstructor(ins);
 
-        assertDoesNotThrow(() -> instructorService.addInstructor(new Instructor("INS02", "Prof. Doe")));
+        assertEquals(1, instructorService.getAllInstructors().size());
     }
 
     @Test
-    void shouldThrowDuplicateIDExcepWhenIDExists() throws DuplicateIDExcep {
-        Instructor ins1 = new Instructor("INS01", "Dr. Smith");
-        instructorService.addInstructor(ins1);
+    void shouldThrowExceptionWhenAddingDuplicate() throws DuplicateIDExcep {
+        instructorService.addInstructor(new Instructor("INS01", "Dr. Smith"));
 
-        Instructor ins2 = new Instructor("INS01", "Copycat");
-
-        assertThrows(DuplicateIDExcep.class, () -> instructorService.addInstructor(ins2));
+        assertThrows(DuplicateIDExcep.class, () -> {
+            instructorService.addInstructor(new Instructor("INS01", "Prof. Jones"));
+        });
     }
 
     @Test
@@ -60,7 +59,6 @@ class InstructorServiceImplTest {
     @Test
     void shouldAssignCourseWhenInstructorExists() throws DuplicateIDExcep {
         instructorService.addInstructor(new Instructor("INS01", "Dr. Smith"));
-        simulateUserInput("JAVA101\n");
         assertDoesNotThrow(() -> instructorService.assignInstructorToSection("INS01"));
     }
 
@@ -74,5 +72,4 @@ class InstructorServiceImplTest {
         instructorService.addInstructor(new Instructor("INS01", "Dr. Smith"));
         assertDoesNotThrow(() -> instructorService.displayAll());
     }
-
 }

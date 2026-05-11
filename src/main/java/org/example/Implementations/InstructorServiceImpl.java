@@ -52,4 +52,8 @@ public class InstructorServiceImpl implements IInstructorService{
         System.out.println(instructorList);
     }
 
+    public ArrayList<Instructor> getAllInstructors() {
+        return instructorList;
+    }
+
 }
