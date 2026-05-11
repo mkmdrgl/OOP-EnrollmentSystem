@@ -23,7 +23,7 @@ public class Section {
         return sectionName;
     }
 
-    public void setSectionName() {
+    public void setSectionName(String sectionName) {
         this.sectionName = sectionName;
     }
 
@@ -31,7 +31,7 @@ public class Section {
         return maxCapacity;
     }
 
-    public void setMaxCapacity() {
+    public void setMaxCapacity(int maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
 
@@ -50,10 +50,9 @@ public class Section {
     @Override
     public String toString() {
         return "Section{" +
-                "sectionName='" + sectionName + '\'' +
-                ", maxCapacity=" + maxCapacity +
-                ", assignedInstructor=" + assignedInstructor +
-                ", enrolledStudents=" + enrolledStudents +
+                "name='" + sectionName + '\'' +
+                ", capacity=" + enrolledStudents.size() + "/" + maxCapacity +
+                ", instructor=" + (assignedInstructor != null ? assignedInstructor.getName() : "None") +
                 '}';
     }
 }
