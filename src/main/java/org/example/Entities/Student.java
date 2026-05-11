@@ -34,10 +34,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "ID='" + getID() + '\'' +
-                ", Name='" + getName() + '\'' +
-                ", program='" + program + '\'' +
-                '}';
+        return String.format("Student [ID: %s, Name: %s, Program: %s]",
+                getID(), getName(), (program != null ? program : "Unassigned"));
     }
 }

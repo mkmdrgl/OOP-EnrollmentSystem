@@ -12,7 +12,7 @@ public class Instructor extends Person {
 
     @Override
     public String toString() {
-        return String.format("Instructor [ID: %s, Name: %s, Assigned Course: %s]",
+        return String.format("Instructor [ID: %s, Name: %s, Assigned Section: %s]",
                 getID(), getName(), (course != null ? course.getCourseName() : "None"));
     }
 }

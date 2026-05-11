@@ -46,10 +46,9 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "courseID='" + courseID + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", program='" + (program != null ? program : "N/A") + '\'' +
-                '}';
+        return String.format("Course [ID: %s, Title: %s, Program: %s]",
+                getCourseID(),
+                getCourseName(),
+                (getProgram() != null ? getProgram() : "N/A"));
     }
 }
