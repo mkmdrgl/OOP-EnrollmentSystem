@@ -12,7 +12,7 @@ public class Instructor extends Person {
         this.course = course;
     }
 
-    public String getCourse() {
+    public Course getCourse() {
         return course;
     }
 

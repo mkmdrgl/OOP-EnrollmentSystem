@@ -17,4 +17,24 @@ public class EnrollmentServiceImpl implements IEnrollmentService {
         System.out.println("Student " + student.getName() + " enrolled in " + course.getcourseName());
     }
 
+    public void viewDepartmentHierarchy() {
+        System.out.println("Department Hierarchy");
+
+        for (Instructor inst : instructorList) {
+            System.out.println("Instructor: " + inst.getName());
+
+            if (inst.getCourse() != null) {
+                Course currentCourse = inst.getCourse();
+                System.out.println("  Course: " + currentCourse.getcourseName());
+
+                for (Student st : studentList) {
+                    if (st.getEnrolledCourses().contains(currentCourse)) {
+                        System.out.println("    - Student: " + st.getName());
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
+
 }
