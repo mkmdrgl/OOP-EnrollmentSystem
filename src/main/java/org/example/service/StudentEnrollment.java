@@ -1,5 +1,5 @@
 package org.example.service;
-import org.example.model.Student;
+import org.example.Entities.Student;
 import java.util.Scanner;
 import java.util.ArrayList;
 

@@ -1,5 +1,5 @@
 package org.example.service;
-import org.example.model.Course;
+import org.example.Entities.Course;
 import java.util.Scanner;
 import java.util.ArrayList;
 
