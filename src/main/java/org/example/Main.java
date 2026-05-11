@@ -268,3 +268,47 @@ public class Main {
             instructorService.assignInstructorToSection(instructors.get(instIdx), section);
         }
     }
+
+    private static Department selectDepartment() {
+        System.out.println("\n--- Select Department ---");
+        for (int i = 0; i < universityDepartments.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + universityDepartments.get(i).getDepartment());
+        }
+        int idx = getIntInput() - 1;
+        if (idx < 0 || idx >= universityDepartments.size()) return null;
+        return universityDepartments.get(idx);
+    }
+
+    private static Section selectSectionFromAll() {
+        Department dept = selectDepartment();
+        if (dept == null || dept.getSections().isEmpty()) {
+            System.out.println("No sections available in this department.");
+            return null;
+        }
+
+        System.out.println("\n--- Select Section ---");
+        List<Section> sections = dept.getSections();
+        for (int i = 0; i < sections.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + sections.get(i).getSectionName());
+        }
+        int idx = getIntInput() - 1;
+        if (idx < 0 || idx >= sections.size()) return null;
+        return sections.get(idx);
+    }
+
+    private static void printHeader(String title) {
+        System.out.println("\n==========================================");
+        System.out.println("   " + title);
+        System.out.println("==========================================");
+    }
+
+    private static int getIntInput() {
+        try {
+            int input = scanner.nextInt();
+            scanner.nextLine();
+            return input;
+        } catch (Exception e) {
+            scanner.nextLine(); return -1;
+        }
+    }
+}
