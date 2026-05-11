@@ -9,4 +9,8 @@ public class IStudentService {
     Scanner input = new Scanner(System.in);
     private ArrayList<Student> studentList = new ArrayList<>();
 
+    public void addStudent(Student student) {
+        studentList.add(student);
+    }
+
 }
