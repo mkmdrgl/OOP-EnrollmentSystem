@@ -32,5 +32,13 @@ public class IStudentService {
         System.out.println("Student not found.");
     }
 
-
+    public String removeStudent(String studentID) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getID().equals(studentID)) {
+                studentList.remove(i);
+                return "Successfully Deleted";
+            }
+        }
+        return "Error: Student not found";
+    }
 }
