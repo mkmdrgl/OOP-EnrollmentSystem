@@ -12,4 +12,14 @@ public class IInstructorService {
         instructorList.add(instructor);
     }
 
+    public void getInstructorDetails(String instructorID) {
+        for (Instructor inst : instructorList) {
+            if (inst.getID().equals(instructorID)) {
+                System.out.println(inst);
+                return;
+            }
+        }
+        System.out.println("Instructor not found.");
+    }
+
 }
