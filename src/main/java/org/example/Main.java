@@ -214,3 +214,38 @@ public class Main {
             }
         }
     }
+
+    private static void createSectionWorkflow() {
+        Department dept = selectDepartment();
+        if (dept == null) return;
+
+        System.out.print("Enter Section Name: ");
+        String name = scanner.nextLine();
+        dept.getSections().add(new Section(name, 30));
+        System.out.println("Section " + name + " created under " + dept.getDepartment());
+    }
+
+    private static void enrollStudentWorkflow() {
+        ArrayList<Student> students = studentService.getAllStudents();
+        if (students.isEmpty()) {
+            System.out.println("No students registered.");
+            return;
+        }
+
+        System.out.println("\n--- Select Student ---");
+        for (int i = 0; i < students.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + students.get(i).getName());
+        }
+        int stuIdx = getIntInput() - 1;
+        if (stuIdx < 0 || stuIdx >= students.size()) return;
+
+        Section section = selectSectionFromAll();
+        if (section == null) return;
+
+        try {
+            enrollmentService.enrollStudentInSection(students.get(stuIdx), section);
+        } catch (SectionFullExcep e) {
+            System.err.println("SYSTEM REJECTION: " + e.getMessage());
+        }
+    }
+
