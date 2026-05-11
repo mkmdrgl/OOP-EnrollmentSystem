@@ -1,27 +1,26 @@
 package org.example;
+import org.example.model.Student;
+import org.example.model.Instructor;
 
 public class Main {
     public static void main(String[] args) {
+        Student student1 = new Student(2024390901, "Mikaela Alexa A. Madrigal");
+        Instructor instructor1 = new Instructor (2024109093, "Erika Trixie P. Dirilo");
 
-        Student student = new Student();
-        student.setstudentID("000123");
-        student.setstudentName("John Doe");
-        student.setprogram("BS Information Technology");
-        student.display();
+        System.out.println("Student ID: " + student1.getID());
+        System.out.println("Student Name: " + student1.getName());
+        student1.setProgram("BS Information Technology");
+        System.out.println("Student Program: " + student1.getProgram());
+        student1.mainTask();
+
         System.out.print("\n");
 
-        Student student2 = new Student();
-        student2.setstudentID("000124");
-        student2.setstudentName("Jane Doe");
-        student2.setprogram("BS Information Technology");
-        student2.display();
-        System.out.print("\n");
-
-        Course course = new Course();
-        course.setcourseID("000001");
-        course.setcourseName("Integrative Programming");
-        course.setprogram("BS Information Technology");
-        course.display();
+        System.out.println("Instructor ID: " + instructor1.getID());
+        System.out.println("Instructor Name: " + instructor1.getName());
+        instructor1.setCourses("Integrative Programming and Technologies");
+        System.out.println("Instructor Course: " + instructor1.getCourses());
+        instructor1.mainTask();
 
     }
 }
+
