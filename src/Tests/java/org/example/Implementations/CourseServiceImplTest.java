@@ -35,4 +35,20 @@ class CourseServiceImplTest {
         String result = courseService.removeCourse("999");
         assertEquals("Error: Course not found", result);
     }
+
+    @Test
+    void shouldHandleDisplayAllWhenListIsEmpty() {
+        assertDoesNotThrow(() -> courseService.displayAll());
+    }
+
+    @Test
+    void shouldThrowExceptionWhenUpdatingWithBlankName() throws InvalidInputExcep {
+        courseService.addCourse(new Course("C101", "Java", "CS"));
+        String simulatedInput = "   \nSomeProgram\n";
+        System.setIn(new java.io.ByteArrayInputStream(simulatedInput.getBytes()));
+
+        assertThrows(InvalidInputExcep.class, () -> {
+            courseService.updateCourse("C101");
+        });
+    }
 }
