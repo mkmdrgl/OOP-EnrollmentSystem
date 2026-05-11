@@ -3,7 +3,6 @@ package org.example.Interfaces;
 import org.example.Entities.Student;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.List;
 
 public class IStudentService {
     Scanner input = new Scanner(System.in);
@@ -15,15 +14,17 @@ public class IStudentService {
 
     public void updateStudent(String studentID) {
         for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getpersonID().equals(studentID)) {
+            if (studentList.get(i).getID().equals(studentID)) {
+
                 System.out.print("Enter new name: ");
                 String name = input.nextLine();
 
                 System.out.print("Enter new program: ");
                 String program = input.nextLine();
 
-                studentList.get(i).setpersonName(name);
-                studentList.get(i).setProgram(program);
+                studentList.get(i).getName(name);
+                studentList.get(i).setprogram(program);
+
                 System.out.println("Student updated successfully.");
                 return;
             }
