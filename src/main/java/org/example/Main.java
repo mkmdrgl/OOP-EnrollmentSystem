@@ -169,3 +169,25 @@ public class Main {
             } catch (InvalidInputExcep e) { System.err.println(e.getMessage()); }
         }
     }
+
+    private static void tuitionMenu() {
+        printHeader("TUITION FEE MANAGEMENT");
+        System.out.print("Enter Number of Units: ");
+        int units = getIntInput();
+        System.out.print("Enter Discount (0.0 to 1.0): ");
+        double disc = scanner.nextDouble(); scanner.nextLine();
+
+        double total = tuitionService.calculateFee(units, disc);
+        System.out.printf("Total Assessment: PHP %.2f\n", total);
+
+        System.out.print("Enter Payment Amount: ");
+        double pay = scanner.nextDouble(); scanner.nextLine();
+
+        try {
+            double bal = tuitionService.makePayment(total, pay);
+            System.out.printf("--- PAYMENT PROCESSED ---\nRemaining Balance: PHP %.2f\n", bal);
+        } catch (InvalidPaymentExcep e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
