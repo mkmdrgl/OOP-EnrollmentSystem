@@ -1,30 +1,23 @@
 package org.example.Entities;
 
-import java.util.ArrayList;
+public class Instructor extends Person {
+    private String course;
 
-public class Instructor {
-    private String instructorID;
-    private String instructorName;
-
-    public Instructor(String instructorID, String instructorName) {
-        this.instructorID = instructorID;
-        this.instructorName = instructorName;
+    public Instructor() {
+        super();
     }
 
-    public String getInstructorID() {
-        return instructorID;
+    public Instructor(String instructorID, String instructorName, String course) {
+        super(instructorID, instructorName);
+        this.course = course;
     }
 
-    public String getInstructorName() {
-        return instructorName;
+    public String getCourse() {
+        return course;
     }
 
-    public void setInstructorID(String instructorID) {
-        this.instructorID = instructorID;
-    }
-
-    public void setInstructorName(String instructorName) {
-        this.instructorName = instructorName;
+    public void setCourse() {
+        this.course = course;
     }
 
 }
