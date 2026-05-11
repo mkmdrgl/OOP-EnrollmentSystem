@@ -30,7 +30,7 @@ public class Main {
             System.out.println(" [4] Tuition Fee Payment");
             System.out.println(" [5] Enrollment and College Departments");
             System.out.println(" [0] Exit");
-            System.out.print("\nSelection > ");
+            System.out.print("\n>>>>> ");
 
             int choice = getIntInput();
             switch (choice) {
@@ -76,7 +76,7 @@ public class Main {
             System.out.println(" [1] Register Student     [3] Remove Student");
             System.out.println(" [2] Update Information   [4] List All Students");
             System.out.println(" [0] Back");
-            System.out.print("\nSelection > ");
+            System.out.print("\n>>>>> ");
             int choice = getIntInput();
             try {
                 switch (choice) {
@@ -106,10 +106,10 @@ public class Main {
         while (!back) {
             printHeader("INSTRUCTOR MANAGEMENT");
             System.out.println(" [1] Add Instructor       [4] Display All");
-            System.out.println(" [2] Update Name          [5] View Specific Details");
+            System.out.println(" [2] Update Details       [5] View Specific Details");
             System.out.println(" [3] Remove Instructor    [6] Assign to Section");
             System.out.println(" [0] Back");
-            System.out.print("\nSelection > ");
+            System.out.print("\n>>>>> ");
             int choice = getIntInput();
             try {
                 switch (choice) {
@@ -145,7 +145,7 @@ public class Main {
             System.out.println(" [1] Add Course      [2] Update Course");
             System.out.println(" [3] Remove Course   [4] Display All");
             System.out.println(" [0] Back");
-            System.out.print("\nSelection > ");
+            System.out.print("\n>>>>> ");
             int choice = getIntInput();
             try {
                 switch (choice) {
@@ -199,7 +199,7 @@ public class Main {
             System.out.println(" [2] View Institutional Hierarchy");
             System.out.println(" [3] Enroll Student in Section");
             System.out.println(" [0] Back");
-            System.out.print("\nSelection > ");
+            System.out.print("\n>>>>> ");
             int choice = getIntInput();
 
             switch (choice) {
