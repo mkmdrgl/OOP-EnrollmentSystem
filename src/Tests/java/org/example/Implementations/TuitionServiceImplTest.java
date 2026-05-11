@@ -1,5 +1,6 @@
 package org.example.Implementations;
 
+import org.example.Exceptions.InvalidPaymentExcep;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,21 +15,21 @@ class TuitionFeePaymentTest {
     }
 
     @Test
-    void shouldMakeAPayment() {
-        double totalTuition = tuitionService.calculateFee(3, 0.10);
+    void shouldMakeAPayment() throws InvalidPaymentExcep {
+        double totalTuition = tuitionService.calculateFee(3, 0.10); // 2700.0
         double remainingBalance = tuitionService.makePayment(totalTuition, 1000.0);
         assertEquals(1700.0, remainingBalance, "The remaining balance should be 1700 after paying 1000");
     }
 
     @Test
-    void shouldCheckIfTheTuitionFeeIsNotFullyPaid() {
+    void shouldCheckIfTheTuitionFeeIsNotFullyPaid() throws InvalidPaymentExcep {
         double totalTuition = tuitionService.calculateFee(3, 0.10);
         double remainingBalance = tuitionService.makePayment(totalTuition, 1000.0);
         assertTrue(remainingBalance > 0, "Fee should not be fully paid when balance is greater than 0");
     }
 
     @Test
-    void shouldCheckIfTheTuitionFeeIsFullyPaid() {
+    void shouldCheckIfTheTuitionFeeIsFullyPaid() throws InvalidPaymentExcep {
         double totalTuition = tuitionService.calculateFee(3, 0.10);
         double remainingBalance = tuitionService.makePayment(totalTuition, 2700.0);
         assertEquals(0.0, remainingBalance, "Fee should be fully paid (0.0 balance)");
@@ -40,5 +41,13 @@ class TuitionFeePaymentTest {
         double amountPaidSoFar = 2000.0;
         double result = tuitionService.getRemainingBalance(totalTuition, amountPaidSoFar);
         assertEquals(3000.0, result);
+    }
+
+    @Test
+    void shouldThrowExceptionWhenPaymentAmountIsNegative() {
+        double totalTuition = 2000.0;
+        assertThrows(InvalidPaymentExcep.class, () -> {
+            tuitionService.makePayment(totalTuition, -50.0);
+        }, "Should throw InvalidPaymentExcep for negative payments");
     }
 }
