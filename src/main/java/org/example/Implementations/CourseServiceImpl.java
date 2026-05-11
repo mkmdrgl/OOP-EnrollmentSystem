@@ -7,32 +7,32 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class CourseServiceImpl implements ICourseService {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
     private ArrayList<Course> courseList = new ArrayList<>();
 
     public void addCourse(Course course) throws InvalidInputExcep {
-        if (course.getcourseID() == null || course.getcourseID().trim().isEmpty()) {
+        if (course.getCourseID() == null || course.getCourseID().trim().isEmpty()) {
             throw new InvalidInputExcep("Error: Course ID cannot be empty.");
         }
-        if (course.getcourseName() == null || course.getcourseName().trim().isEmpty()) {
-            throw new InvalidInputExcep("Error: Course Name cannot be empty.");
+
+        for (Course c : courseList) {
+            if (c.getCourseID().equalsIgnoreCase(course.getCourseID())) {
+                throw new InvalidInputExcep("Error: Course ID " + course.getCourseID() + " already exists.");
+            }
         }
+
         courseList.add(course);
-        System.out.println("Course added successfully.");
+        System.out.println("Course [" + course.getCourseName() + "] added successfully.");
     }
 
     public void updateCourse(String courseID) {
-        for (int i = 0; i < courseList.size(); i++) {
-            if (courseList.get(i).getcourseID().equals(courseID)) {
-
+        for (Course c : courseList) {
+            if (c.getCourseID().equals(courseID)) {
                 System.out.print("Enter new course name: ");
-                String name = input.nextLine();
+                c.setCourseName(input.nextLine());
 
                 System.out.print("Enter new program: ");
-                String program = input.nextLine();
-
-                courseList.get(i).setcourseName(name);
-                courseList.get(i).setprogram(program);
+                c.setProgram(input.nextLine());
 
                 System.out.println("Course updated successfully.");
                 return;
@@ -43,16 +43,23 @@ public class CourseServiceImpl implements ICourseService {
 
     public String removeCourse(String courseID) {
         for (int i = 0; i < courseList.size(); i++) {
-            if (courseList.get(i).getcourseID().equals(courseID)) {
+            if (courseList.get(i).getCourseID().equals(courseID)) {
                 courseList.remove(i);
-                return "Successfully Deleted";
+                return "Course " + courseID + " successfully deleted.";
             }
         }
-        return "Error: Course not found";
+        return "Error: Course not found.";
     }
 
     public void displayAll() {
-        System.out.println(courseList);
+        if (courseList.isEmpty()) {
+            System.out.println("No courses registered in the system.");
+        } else {
+            System.out.println("--- Registered Courses ---");
+            for (Course c : courseList) {
+                System.out.println(c);
+            }
+        }
     }
 
     public ArrayList<Course> getAllCourses() {

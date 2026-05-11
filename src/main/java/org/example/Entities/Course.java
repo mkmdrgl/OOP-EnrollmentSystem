@@ -15,40 +15,17 @@ public class Course {
         this.courseID = courseID;
     }
 
-    public Course(String id, String name) {
-    }
-
-    public String getcourseID() {
-        return courseID;
-    }
-
-    public String getcourseName() {
-        return courseName;
-    }
-
-    public String getprogram() {
-        return program;
-    }
-
-    public void setcourseID(String courseID) {
+    public Course(String courseID, String courseName) {
         this.courseID = courseID;
-    }
-
-    public void setcourseName(String courseName) {
         this.courseName = courseName;
     }
 
-    public void setprogram(String program) {
-        this.program = program;
+    public String getCourseID() {
+        return courseID;
     }
 
-    @Override
-    public String toString() {
-        return "Course{" +
-                "courseID='" + courseID + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", program='" + program + '\'' +
-                '}';
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
     }
 
     public String getCourseName() {
@@ -57,5 +34,22 @@ public class Course {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID='" + courseID + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", program='" + (program != null ? program : "N/A") + '\'' +
+                '}';
     }
 }

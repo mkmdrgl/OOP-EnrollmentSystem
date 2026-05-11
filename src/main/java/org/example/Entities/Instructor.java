@@ -3,29 +3,16 @@ package org.example.Entities;
 public class Instructor extends Person {
     private Course course;
 
-    public Instructor(String instructorID, String instructorName) {
-        super(instructorID, instructorName);
+    public Instructor(String id, String name) {
+        super(id, name);
     }
 
-    public Instructor(String instructorID, String instructorName, Course course) {
-        super(instructorID, instructorName);
-        this.course = course;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course newCourse) {
-        this.course = newCourse;
-    }
+    public Course getCourse() { return course; }
+    public void setCourse(Course course) { this.course = course; }
 
     @Override
     public String toString() {
-        return "Instructor{" +
-                "ID='" + getID() + '\'' + // Added ID to toString
-                ", name='" + getName() + '\'' +
-                ", course=" + (course != null ? course.getcourseName() : "None") +
-                '}';
+        return String.format("Instructor [ID: %s, Name: %s, Assigned Course: %s]",
+                getID(), getName(), (course != null ? course.getCourseName() : "None"));
     }
 }
