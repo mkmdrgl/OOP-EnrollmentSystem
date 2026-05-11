@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/java/org/example/Entities/Instructor.java
 package org.example.Entities;
 
 public class Instructor extends Person {
@@ -28,3 +29,27 @@ public class Instructor extends Person {
     }
 
 }
+=======
+package org.example.model;
+
+public class Instructor extends Person {
+    private String courses;
+
+    public Instructor(int id, String name) {
+        super(id, name);
+    }
+
+    public String getCourses() {
+        return courses;
+    }
+
+    public void setCourses(String courses) {
+        this.courses = courses;
+    }
+
+    public void mainTask() {
+        System.out.println("Main Task: Teach");
+    }
+
+}
+>>>>>>> main:src/main/java/org/example/model/Instructor.java
