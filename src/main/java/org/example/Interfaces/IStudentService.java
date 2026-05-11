@@ -41,4 +41,13 @@ public class IStudentService {
         }
         return "Error: Student not found";
     }
+
+    public void displayAll() {
+        System.out.println(studentList);
+    }
+
+    public ArrayList<Student> getAllStudents() {
+        return studentList;
+    }
+
 }
