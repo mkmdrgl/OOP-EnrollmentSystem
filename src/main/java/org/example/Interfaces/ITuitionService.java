@@ -11,4 +11,12 @@ public class ITuitionService {
         }
         return total;
     }
+
+    public double makePayment(double totalTuition, double amountPaid) {
+        return totalTuition - amountPaid;
+    }
+
+    public double getRemainingBalance(double totalTuition, double totalPaid) {
+        return totalTuition - totalPaid;
+    }
 }
