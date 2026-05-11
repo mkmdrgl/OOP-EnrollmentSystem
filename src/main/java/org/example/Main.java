@@ -191,3 +191,26 @@ public class Main {
         }
     }
 
+    private static void hierarchyEnrollmentMenu() {
+        boolean back = false;
+        while (!back) {
+            printHeader("HIERARCHY & ENROLLMENT");
+            System.out.println(" [1] Create New Section");
+            System.out.println(" [2] View Institutional Hierarchy");
+            System.out.println(" [3] Enroll Student in Section");
+            System.out.println(" [0] Back");
+            System.out.print("\nSelection > ");
+            int choice = getIntInput();
+
+            switch (choice) {
+                case 1 -> createSectionWorkflow();
+                case 2 -> {
+                    for (Department dept : universityDepartments) {
+                        enrollmentService.displayDepartmentHierarchy(dept);
+                    }
+                }
+                case 3 -> enrollStudentWorkflow();
+                case 0 -> back = true;
+            }
+        }
+    }
