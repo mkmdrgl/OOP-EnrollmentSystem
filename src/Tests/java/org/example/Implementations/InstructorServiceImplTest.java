@@ -34,4 +34,22 @@ class InstructorServiceImplTest {
 
         assertDoesNotThrow(() -> instructorService.addInstructor(new Instructor("INS02", "Prof. Doe")));
     }
+
+    @Test
+    void shouldThrowDuplicateIDExcepWhenIDExists() throws DuplicateIDExcep {
+        Instructor ins1 = new Instructor("INS01", "Dr. Smith");
+        instructorService.addInstructor(ins1);
+
+        Instructor ins2 = new Instructor("INS01", "Copycat");
+
+        assertThrows(DuplicateIDExcep.class, () -> instructorService.addInstructor(ins2));
+    }
+
+    @Test
+    void shouldPrintDetailsWhenInstructorFound() throws DuplicateIDExcep {
+        instructorService.addInstructor(new Instructor("INS01", "Dr. Smith"));
+
+        assertDoesNotThrow(() -> instructorService.getInstructorDetails("INS01"));
+    }
+
 }
