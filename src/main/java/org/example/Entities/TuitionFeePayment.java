@@ -1,5 +1,7 @@
 package org.example.Entities;
 
+import org.example.Exceptions.InvalidPaymentExcep;
+
 public class TuitionFeePayment {
     private final double PRICE_PER_UNIT = 1000.00;
     private double balance;
