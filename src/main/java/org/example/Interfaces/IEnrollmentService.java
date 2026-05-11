@@ -5,4 +5,5 @@ import org.example.Entities.Course;
 
 public interface IEnrollmentService {
     void enrollStudentInSection(Student student, Course course);
+    void viewDepartmentHierarchy();
 }
