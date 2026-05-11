@@ -1,6 +1,6 @@
 package org.example.Implementations;
 
-import org.example.Entities.Course;
+import org.example.Entities.Section;
 import org.example.Entities.Instructor;
 import org.example.Interfaces.IInstructorService;
 import org.example.Exceptions.DuplicateIDExcep;
@@ -31,22 +31,14 @@ public class InstructorServiceImpl implements IInstructorService {
         System.out.println("Instructor not found.");
     }
 
-    public void assignInstructorToSection(String instructorID) {
-        for (Instructor inst : instructorList) {
-            if (inst.getID().equals(instructorID)) {
-                System.out.print("Enter the new course ID: ");
-                String newCourseID = input.nextLine();
-                System.out.print("Enter the course name: ");
-                String newCourseName = input.nextLine();
-
-                Course newCourse = new Course(newCourseID, newCourseName);
-                inst.setCourse(newCourse);
-
-                System.out.println("Course " + newCourseName + " assigned to Instructor " + inst.getName());
-                return;
-            }
+    public void assignInstructorToSection(Instructor instructor, Section section) {
+        if (instructor != null && section != null) {
+            section.setAssignedInstructor(instructor);
+            System.out.println("Assigned Instructor " + instructor.getName() +
+                    " to Section " + section.getSectionName());
+        } else {
+            System.out.println("Error: Assignment failed. Instructor or Section is null.");
         }
-        System.out.println("Instructor ID " + instructorID + " not found.");
     }
 
     public void updateInstructor(String instructorID) throws DuplicateIDExcep {
