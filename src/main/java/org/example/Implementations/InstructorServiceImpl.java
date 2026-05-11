@@ -1,5 +1,6 @@
 package org.example.Implementations;
 
+import org.example.Entities.Course;
 import org.example.Entities.Instructor;
 import org.example.Interfaces.IInstructorService;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class InstructorServiceImpl implements IInstructorService{
     Scanner input = new Scanner(System.in);
     private ArrayList<Instructor> instructorList = new ArrayList<>();
+    private String newCourseID;
 
     public void addInstructor(Instructor instructor) {
         instructorList.add(instructor);
@@ -26,12 +28,13 @@ public class InstructorServiceImpl implements IInstructorService{
     public void assignInstructorToSection(String instructorID) {
         for (int i = 0; i < instructorList.size(); i++) {
             if (instructorList.get(i).getID().equals(instructorID)) {
-                System.out.print("Enter the new course/section to assign: ");
-                String newCourse = input.nextLine();
+                System.out.print("Enter the new course ID to assign: ");
+                String newCourseID = input.nextLine();
 
-                instructorList.get(i).setCourse(newCourse);
+                Course newCourseObject = new Course(newCourseID);
+                instructorList.get(i).setCourse(newCourseObject);
 
-                System.out.println("Instructor assigned to " + newCourse + " successfully.");
+                System.out.println("Instructor assigned successfully.");
                 return;
             }
         }
