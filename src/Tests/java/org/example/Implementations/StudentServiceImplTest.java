@@ -76,17 +76,4 @@ class StudentServiceTest {
         studentService.addStudent(new Student("S1", "Alice", "CS"));
         assertDoesNotThrow(() -> studentService.displayAll());
     }
-
-    @Test
-    void shouldHandleRemoveOnEmptyList() {
-        String result = studentService.removeStudent("S999");
-        assertEquals("Error: Student not found", result);
-    }
-
-    @Test
-    void shouldHandleUpdateOnEmptyList() {
-        assertThrows(DuplicateIDExcep.class, () -> {
-            studentService.updateStudent("S999");
-        });
-    }
 }

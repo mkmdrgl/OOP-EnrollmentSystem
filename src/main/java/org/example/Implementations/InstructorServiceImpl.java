@@ -3,6 +3,7 @@ package org.example.Implementations;
 import org.example.Entities.Course;
 import org.example.Entities.Instructor;
 import org.example.Interfaces.IInstructorService;
+import org.example.Exceptions.DuplicateIDExcep;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,8 +12,14 @@ public class InstructorServiceImpl implements IInstructorService{
     private ArrayList<Instructor> instructorList = new ArrayList<>();
     private String newCourseID;
 
-    public void addInstructor(Instructor instructor) {
+    public void addInstructor(Instructor instructor) throws DuplicateIDExcep {
+        for (Instructor inst : instructorList) {
+            if (inst.getID().equals(instructor.getID())) {
+                throw new DuplicateIDExcep("Error: Instructor ID " + instructor.getID() + " is already registered.");
+            }
+        }
         instructorList.add(instructor);
+        System.out.println("Instructor " + instructor.getName() + " added successfully.");
     }
 
     public void getInstructorDetails(String instructorID) {
