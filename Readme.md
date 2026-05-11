@@ -29,9 +29,9 @@ User Interface (Main), allowing for enhanced operations and data management.
 * The system implements a try-catch blocks to ensure that the
 system does not crash when encountering errors. 
   * **Exceptions:**
-      * **Duplicate ID Detection**
-      * **Invalid Input Detection**
-      * **Invalid Payment Exception**
+      * **Duplicate ID**
+      * **Invalid User Input**
+      * **Invalid Payment**
       * **Section at Full Capacity**
 
 #### 5. JUnit Testing
